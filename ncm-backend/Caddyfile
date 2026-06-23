@@ -1,0 +1,10 @@
+# 把 ncmapi.example.com 改成你解析到本服务器的真实域名
+# Caddy 会自动申请并续期 Let's Encrypt 证书（HTTPS 全自动）
+ncmapi.example.com {
+	encode gzip
+
+	# 仅允许你的酒馆来源跨域（可选，按需修改/删除）
+	# 注意：API 自身已带 CORS，这里一般无需额外配置
+
+	reverse_proxy ncmapi:3000
+}

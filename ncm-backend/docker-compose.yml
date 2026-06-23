@@ -1,0 +1,32 @@
+services:
+  ncmapi:
+    build: .
+    # 如果上面的 Dockerfile 构建失败（npm 包不可用），可改用社区镜像：
+    # image: binaryify/netease_cloud_music_api:latest
+    container_name: ncmapi
+    restart: unless-stopped
+    environment:
+      - PORT=3000
+    expose:
+      - "3000"
+    # 仅在本机调试时打开下面端口映射（生产环境用 Caddy 反代即可，不必直接暴露）
+    # ports:
+    #   - "3000:3000"
+
+  caddy:
+    image: caddy:2
+    container_name: ncm-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - ncmapi
+
+volumes:
+  caddy_data:
+  caddy_config:
