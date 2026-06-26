@@ -1,0 +1,14 @@
+{
+  "scriptName": "小说排版-首段缩进",
+  "findRegex": "/^(?=[^　\\s])/",
+  "replaceString": "　　",
+  "trimStrings": [],
+  "placement": [2],
+  "disabled": false,
+  "markdownOnly": true,
+  "promptOnly": false,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": null
+}

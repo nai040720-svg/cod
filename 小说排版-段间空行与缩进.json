@@ -1,0 +1,14 @@
+{
+  "scriptName": "小说排版-段间空行与缩进",
+  "findRegex": "/\\n+/g",
+  "replaceString": "\n\n　　",
+  "trimStrings": [],
+  "placement": [2],
+  "disabled": false,
+  "markdownOnly": true,
+  "promptOnly": false,
+  "runOnEdit": true,
+  "substituteRegex": 0,
+  "minDepth": null,
+  "maxDepth": null
+}
